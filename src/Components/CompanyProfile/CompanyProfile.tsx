@@ -5,6 +5,7 @@ import { getKeyMetrics } from '../../api';
 import RadioList from '../RadioList/RadioList';
 import Spinner from '../Spinner/Spinner';
 import { formatLargeNonMonetaryNumber, formatRatio } from '../../Helpers/NumberFormatting';
+import StockComment from '../StockComment/StockComment';
 
 type Props = {}
 
@@ -91,7 +92,10 @@ const tableConfig = [
     <>
     {
       comapnyData ? (
-       <RadioList data={comapnyData} config={tableConfig}/>
+        <>
+               <RadioList data={comapnyData} config={tableConfig}/>
+               <StockComment stockSymbol = {ticker}/>
+        </>
       ): (
         <Spinner />
       )
